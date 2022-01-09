@@ -24,25 +24,13 @@ const mapDispatchToProps = (dispatch) => {
 
 function Todos(props) {
   const [todo, setTodo] = useState("");
-  const inputRef = useRef(true);
-
-  const changeFocus = () => {
-    inputRef.current.disabled = false;
-    inputRef.current.focus();
-  };
-
-  const update = (id, value, e) => {
-    if (e.which === 13) {
-      props.updateTodo({ id, item: value });
-      inputRef.current.disabled = true;
-    }
-  };
+ 
 
   const handleChange = (event) => {
     setTodo(event.target.value);
   };
 
-  console.log("props from store", props);
+  //console.log("props from store", props);
 
   return (
     <div className="addTodos">
@@ -65,26 +53,7 @@ function Todos(props) {
       </button>
       <br />
 
-      <ul>
-        {props.todos.map((item) => {
-          return (
-            <li key={item.id}>
-              <textarea
-                ref={inputRef}
-                disabled={inputRef}
-                defaultValue={item.item}
-                onKeyPress={(e) => update(item.id, inputRef.current.value, e)}
-              />
-
-              <button onClick={() => changeFocus()}>Edit</button>
-              <button onClick={() => props.completeTodo(item.id)}>
-                Complete
-              </button>
-              <button onClick={() => props.removeTodo(item.id)}>Delete</button>
-            </li>
-          );
-        })}
-      </ul>
+    
     </div>
   );
 }
