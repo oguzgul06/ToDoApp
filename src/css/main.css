@@ -182,3 +182,67 @@ body {
     margin-right: 0;
   }
 }
+
+/* Login Css */
+
+.Login > h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+  color: #d0d4d7;
+  text-shadow: 0 0 5px #433aa8, 3px -1px 5px #271c6c;
+}
+
+.Login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background: rgb(180, 182, 218);
+  background: radial-gradient(
+    circle,
+    hsla(237, 34%, 78%, 0.9) 0%,
+    hsla(219, 88%, 94%, 0.9) 100%
+  );
+
+  margin: 0 1rem 1rem 0;
+  height: 10rem;
+  width: 30rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container > h1 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  margin-bottom: 2rem;
+  color: #3c2c7e;
+  text-shadow: 0 0 5px #433aa8, 3px -1px 5px #271c6c;
+}
+
+.login-container > button {
+  border-radius: 20%;
+  border: none;
+  margin: 0 0.6rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #271c6c;
+  background-color: transparent;
+}
+
+.login-container > button:focus {
+  outline: none;
+}
