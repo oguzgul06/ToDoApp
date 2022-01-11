@@ -5,11 +5,12 @@ import Todos from "./components/Todos";
 import { motion } from "framer-motion";
 import Login from "./components/Login";
 import { useSelector, useDispatch } from "react-redux";
-import { login, logout, selectUser } from "./redux/loginReducer";
+import { login, logout } from "./redux/loginReducer";
 import { auth } from "./firebase";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const user = useSelector(selectUser);
+  const user = useSelector((state) => state.selectUser);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -30,29 +31,29 @@ function App() {
 
   return (
     <div className="App">
-      {!user ? (
+      {/* {!user ? (
         <Login />
-      ) : (
-        <>
-          <motion.h1
-            initial={{ y: -200 }}
-            animate={{ y: 0 }}
-            transition={{ type: "spring", duration: 0.5 }}
-            whileHover={{ scale: 1.1 }}
-          >
-            ToDo App
-          </motion.h1>
+      ) : ()} */}
+      <>
+        <Navbar />
+        <motion.h1
+          initial={{ y: -200 }}
+          animate={{ y: 0 }}
+          transition={{ type: "spring", duration: 0.5 }}
+          whileHover={{ scale: 1.1 }}
+        >
+          ToDo App
+        </motion.h1>
 
-          <motion.div
-            initial={{ y: 1000 }}
-            animate={{ y: 0 }}
-            transition={{ type: "spring", duration: 1 }}
-          >
-            <Todos />
-            <DisplayTodos />
-          </motion.div>
-        </>
-      )}
+        <motion.div
+          initial={{ y: 1000 }}
+          animate={{ y: 0 }}
+          transition={{ type: "spring", duration: 1 }}
+        >
+          <Todos />
+          <DisplayTodos />
+        </motion.div>
+      </>
     </div>
   );
 }
